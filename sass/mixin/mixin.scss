@@ -1,0 +1,80 @@
+//不帶值
+@mixin marginauto() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//帶值
+@mixin marginautos($num) {
+  margin-left: auto;
+  margin-right: auto;
+  width: $num;
+}
+
+.box {
+  @include marginauto();
+}
+
+.box2 {
+  @include marginautos(100vw);
+}
+//帶多值，函數的值要相對應
+@mixin rect($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin margin($left, $right, $width, $height) {
+  margin-left: $left;
+  margin-right: $right;
+  //呼叫另一組函式
+  @include rect($width, $height);
+}
+
+.box4 {
+  @include margin(10px, 20px, 400px, 150px);
+}
+
+.box5 {
+  @include rect(600px, 30vh);
+}
+
+//在mixin中給空值
+@mixin rect($width: null, $height: null) {
+  width: $width;
+  height: $height;
+}
+
+//在mixin中給預設值,沒回傳值會使用預設值
+@mixin rects($width: 800px, $height: 600px) {
+  width: $width;
+  height: $height;
+}
+
+.box6 {
+  @include rects();
+}
+
+@mixin padding($left, $right) {
+  padding-left: $left;
+  padding-right: $right;
+}
+
+.box01 {
+  @include padding(10px, 100px);
+}
+
+@mixin rect-color($classname, $width, $height, $bgc: null) {
+  #{$classname} {
+    @include rect($width, $height);
+    background-color: #abc;
+    @content;
+  }
+}
+
+@mixin afterhover($bgc, $color) {
+  background-color: $bgc;
+  color: $color;
+  @content;
+}
+

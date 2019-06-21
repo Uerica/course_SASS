@@ -1,0 +1,26 @@
+.box {
+  margin-left: auto;
+  margin-right: auto; }
+
+.box2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw; }
+
+.box4 {
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 400px;
+  height: 150px; }
+
+.box5 {
+  width: 600px;
+  height: 30vh; }
+
+.box6 {
+  width: 800px;
+  height: 600px; }
+
+.box01 {
+  padding-left: 10px;
+  padding-right: 100px; }
